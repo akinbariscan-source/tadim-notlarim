@@ -1,0 +1,49 @@
+name: tadim_notlarim
+description: "Tadım Notlarım - şarap tadım notu uygulaması (iOS, Android, Web)."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+
+  # Kamera / galeri (iOS, Android, Web)
+  image_picker: ^1.1.2
+  # Etiketten yazı okuma (yalnızca iOS ve Android; web'de Tesseract.js kullanılır)
+  google_mlkit_text_recognition: '>=0.13.0 <1.0.0'
+  # Cihazda/tarayıcıda kalıcı depolama (web'de IndexedDB)
+  hive_ce: ^2.6.0
+  hive_ce_flutter: ^2.1.0
+  # Yedek dosyası seçme / paylaşma
+  file_picker: ^8.1.2
+  share_plus: ^10.1.4
+  path_provider: ^2.1.4
+  # Web'de dosya indirme ve JS köprüsü
+  web: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/icon/icon.png
+
+# Uygulama simgesi: `dart run flutter_launcher_icons` komutu Android ve iOS
+# simgelerini bu dosyalardan üretir. (Web simgeleri web/icons içinde hazır.)
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/icon.png"
+  remove_alpha_ios: true
+  adaptive_icon_background: "#4A0E1F"
+  adaptive_icon_foreground: "assets/icon/icon_foreground.png"
+  min_sdk_android: 21

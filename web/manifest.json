@@ -1,0 +1,18 @@
+{
+  "name": "Tadım Notlarım",
+  "short_name": "Tadım Notlarım",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#4A0E1F",
+  "theme_color": "#7B1E3A",
+  "description": "Şarap tadım notlarını kaydet, puanla ve karşılaştır.",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "lang": "tr",
+  "icons": [
+    { "src": "icons/Icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/Icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/Icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/Icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

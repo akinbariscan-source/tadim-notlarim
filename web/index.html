@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <!--
+    $FLUTTER_BASE_HREF, `flutter build web --base-href` ile değiştirilir.
+    GitHub Pages'te depo adı (ör. /tadim-notlarim/) GitHub Actions tarafından otomatik verilir.
+  -->
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Tadım Notlarım — şarap tadım notlarını kaydet, puanla ve karşılaştır.">
+  <meta name="theme-color" content="#7B1E3A">
+
+  <!-- iOS: ana ekrana eklenince uygulama gibi açılsın -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Tadım Notlarım">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <title>Tadım Notlarım</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    body { margin: 0; background: #4A0E1F; }
+    #splash {
+      position: fixed; inset: 0; display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #F6E7C8; background: radial-gradient(circle at 50% 35%, #8E2443, #4A0E1F 70%);
+      z-index: 0;
+    }
+    #splash img { width: 112px; height: 112px; border-radius: 26px; box-shadow: 0 10px 30px rgba(0,0,0,.35); }
+    #splash span { font-size: 18px; letter-spacing: .5px; opacity: .9; }
+  </style>
+</head>
+<body>
+  <div id="splash">
+    <img src="icons/Icon-192.png" alt="">
+    <span>Tadım Notlarım</span>
+  </div>
+  <!-- Web'de etiket okuma (OCR) için yardımcı; Tesseract.js ilk kullanımda yüklenir -->
+  <script src="ocr.js" defer></script>
+  <script>
+    function hideSplash() {
+      var s = document.getElementById('splash');
+      if (s) s.remove();
+    }
+    window.addEventListener('flutter-first-frame', hideSplash);
+    setTimeout(hideSplash, 20000);
+  </script>
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
