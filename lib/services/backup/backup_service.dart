@@ -1,6 +1,4 @@
-import 'dart:typed_data';
-
-import 'package:file_picker/file_picker.dart';
+import 'package:file_selector/file_selector.dart';
 
 import '../repository.dart';
 import 'save_file_stub.dart'
@@ -20,15 +18,15 @@ class BackupService {
 
   /// Kullanıcının seçtiği yedek dosyasını içe aktarır. İptal edilirse null döner.
   static Future<int?> importFile() async {
-    final result = await FilePicker.platform.pickFiles(
-      type: FileType.any,
-      withData: true,
+    const jsonGroup = XTypeGroup(
+      label: 'Tadım Notlarım yedeği',
+      extensions: ['json'],
+      mimeTypes: ['application/json', 'text/plain', 'application/octet-stream'],
+      uniformTypeIdentifiers: ['public.json', 'public.text', 'public.data'],
     );
-    if (result == null || result.files.isEmpty) return null;
-    final Uint8List? bytes = result.files.single.bytes;
-    if (bytes == null) {
-      throw const FormatException('Dosya okunamadı.');
-    }
+    final file = await openFile(acceptedTypeGroups: const [jsonGroup]);
+    if (file == null) return null;
+    final bytes = await file.readAsBytes();
     return TastingRepository.instance.importBackup(bytes);
   }
 }

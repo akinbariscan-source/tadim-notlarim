@@ -9,10 +9,12 @@ Future<void> saveBytes(String name, Uint8List bytes) async {
   final dir = await getTemporaryDirectory();
   final file = File('${dir.path}/$name');
   await file.writeAsBytes(bytes, flush: true);
-  await Share.shareXFiles(
-    [XFile(file.path, mimeType: 'application/json', name: name)],
-    subject: 'Tadım Notlarım yedeği',
-    // iPad'de paylaşım penceresinin konumu için zorunlu.
-    sharePositionOrigin: const Rect.fromLTWH(0, 0, 10, 10),
+  await SharePlus.instance.share(
+    ShareParams(
+      files: [XFile(file.path, mimeType: 'application/json', name: name)],
+      subject: 'Tadım Notlarım yedeği',
+      // iPad'de paylaşım penceresinin konumu için zorunlu.
+      sharePositionOrigin: const Rect.fromLTWH(0, 0, 10, 10),
+    ),
   );
 }
