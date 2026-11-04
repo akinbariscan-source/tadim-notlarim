@@ -25,7 +25,22 @@
   <link rel="manifest" href="manifest.json">
 
   <style>
-    body { margin: 0; background: #4A0E1F; }
+    html, body { margin: 0; height: 100%; overflow: hidden; background: #F8EAEC; }
+    @media (prefers-color-scheme: dark) { html, body { background: #261D20; } }
+    /* Uygulama yalnızca güvenli alanda çizilir (çentik ve ana ekran çizgisi dışında) */
+    #app {
+      position: fixed;
+      top: env(safe-area-inset-top, 0px);
+      bottom: env(safe-area-inset-bottom, 0px);
+      left: env(safe-area-inset-left, 0px);
+      right: env(safe-area-inset-right, 0px);
+    }
+    /* Saat / pil şeridinin arkası */
+    #statusbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      height: env(safe-area-inset-top, 0px);
+      background: #4A0E1F;
+    }
     #splash {
       position: fixed; inset: 0; display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 16px;
@@ -38,6 +53,8 @@
   </style>
 </head>
 <body>
+  <div id="statusbar"></div>
+  <div id="app"></div>
   <div id="splash">
     <img src="icons/Icon-192.png" alt="">
     <span>Tadım Notlarım</span>
