@@ -15,13 +15,13 @@ dependencies:
   # Kamera / galeri (iOS, Android, Web)
   image_picker: ^1.1.2
   # Etiketten yazı okuma (yalnızca iOS ve Android; web'de Tesseract.js kullanılır)
-  google_mlkit_text_recognition: '>=0.13.0 <1.0.0'
+  google_mlkit_text_recognition: ^0.17.0
   # Cihazda/tarayıcıda kalıcı depolama (web'de IndexedDB)
   hive_ce: ^2.6.0
   hive_ce_flutter: ^2.1.0
   # Yedek dosyası seçme / paylaşma
-  file_picker: ^8.1.2
-  share_plus: ^10.1.4
+  file_selector: ^1.1.0
+  share_plus: ^13.3.1
   path_provider: ^2.1.4
   # Web'de dosya indirme ve JS köprüsü
   web: ^1.1.0
