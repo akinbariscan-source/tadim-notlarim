@@ -9,14 +9,14 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tadım Notlarım — şarap tadım notlarını kaydet, puanla ve karşılaştır.">
   <meta name="theme-color" content="#7B1E3A">
 
   <!-- iOS: ana ekrana eklenince uygulama gibi açılsın -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Tadım Notlarım">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
@@ -25,22 +25,8 @@
   <link rel="manifest" href="manifest.json">
 
   <style>
-    html, body { margin: 0; height: 100%; overflow: hidden; background: #F8EAEC; }
-    @media (prefers-color-scheme: dark) { html, body { background: #261D20; } }
-    /* Uygulama yalnızca güvenli alanda çizilir (çentik ve ana ekran çizgisi dışında) */
-    #app {
-      position: fixed;
-      top: env(safe-area-inset-top, 0px);
-      bottom: env(safe-area-inset-bottom, 0px);
-      left: env(safe-area-inset-left, 0px);
-      right: env(safe-area-inset-right, 0px);
-    }
-    /* Saat / pil şeridinin arkası */
-    #statusbar {
-      position: fixed; top: 0; left: 0; right: 0;
-      height: env(safe-area-inset-top, 0px);
-      background: #4A0E1F;
-    }
+    html, body { margin: 0; background: #FFF8F8; }
+    @media (prefers-color-scheme: dark) { html, body { background: #1A1113; } }
     #splash {
       position: fixed; inset: 0; display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 16px;
@@ -53,8 +39,6 @@
   </style>
 </head>
 <body>
-  <div id="statusbar"></div>
-  <div id="app"></div>
   <div id="splash">
     <img src="icons/Icon-192.png" alt="">
     <span>Tadım Notlarım</span>
